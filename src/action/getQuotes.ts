@@ -5,15 +5,24 @@ import { createClient } from '@supabase/supabase-js';
 export async function getRandomQuote() {
   console.log('=== GET RANDOM QUOTE CALLED ===')
   
+  // Add more detailed environment variable debugging
+  console.log('All environment variables check:')
+  console.log('NODE_ENV:', process.env.NODE_ENV)
+  console.log('Environment variables available:', Object.keys(process.env).filter(key => key.includes('SUPABASE')))
+  
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
 
   console.log('Environment check in getRandomQuote:')
   console.log('SUPABASE_URL exists:', !!supabaseUrl)
   console.log('SUPABASE_KEY exists:', !!supabaseKey)
+  console.log('SUPABASE_URL value:', supabaseUrl ? 'Set' : 'Not set')
+  console.log('SUPABASE_KEY value:', supabaseKey ? 'Set (length: ' + supabaseKey.length + ')' : 'Not set')
 
   if (!supabaseUrl || !supabaseKey) {
     console.error('Missing Supabase environment variables in getRandomQuote')
+    console.error('URL:', supabaseUrl)
+    console.error('Key:', supabaseKey ? 'Present but hidden' : 'Missing')
     return { 
       success: false, 
       error: 'Database configuration error.' 

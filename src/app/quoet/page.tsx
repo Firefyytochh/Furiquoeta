@@ -27,7 +27,7 @@ export default function Home() {
       if (result.success) {
         setIsSuccess(true)
         setMessage(result.message || 'Quote submitted successfully!')
-        // Clear the form using the ref
+     
         formRef.current?.reset()
       } else {
         setIsSuccess(false)

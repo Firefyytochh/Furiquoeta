@@ -5,12 +5,15 @@ import { createClient } from '@supabase/supabase-js';
 export async function getRandomQuote() {
   console.log('=== GET RANDOM QUOTE CALLED ===')
   
-  // Use the correct environment variable names
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
 
+  console.log('Environment check in getRandomQuote:')
+  console.log('SUPABASE_URL exists:', !!supabaseUrl)
+  console.log('SUPABASE_KEY exists:', !!supabaseKey)
+
   if (!supabaseUrl || !supabaseKey) {
-    console.error('Missing Supabase environment variables')
+    console.error('Missing Supabase environment variables in getRandomQuote')
     return { 
       success: false, 
       error: 'Database configuration error.' 
@@ -20,7 +23,6 @@ export async function getRandomQuote() {
   try {
     const supabase = createClient(supabaseUrl, supabaseKey)
     
-    // First, get the total count of quotes
     const { count, error: countError } = await supabase
       .from('quotes')
       .select('*', { count: 'exact', head: true })
@@ -37,10 +39,8 @@ export async function getRandomQuote() {
       }
     }
 
-    // Generate a random offset
     const randomOffset = Math.floor(Math.random() * count)
     
-    // Fetch one random quote using offset
     const { data, error } = await supabase
       .from('quotes')
       .select('content')

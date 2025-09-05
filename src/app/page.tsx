@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { getRandomQuote } from "@/action/getQuotes"
 import { useState } from "react"
+import Image from "next/image"
 
 export default function Home() {
   const [currentQuote, setCurrentQuote] = useState('')
@@ -38,10 +39,6 @@ export default function Home() {
         fontFamily: "'Poppins', sans-serif",
       }}
     >
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
-      />
       
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -112,14 +109,18 @@ export default function Home() {
         <div className="flex items-center justify-between max-w-5xl mx-auto">
           <div className="flex items-center gap-3">
             <div className="w-16 h-16 relative character-swap">
-              <img
+              <Image
                 src="/furina1.jpg"
                 alt="Furi Character"
+                width={64}
+                height={64}
                 className="w-full h-full object-contain default-image"
               />
-              <img
+              <Image
                 src="/furina2.png"
                 alt="Furi Character Hover"
+                width={64}
+                height={64}
                 className="w-full h-full object-contain hover-image"
               />
             </div>
@@ -190,7 +191,7 @@ export default function Home() {
                   </div>
                 ) : currentQuote ? (
                   <blockquote className="text-white text-2xl lg:text-3xl leading-relaxed font-medium text-center" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                    "{currentQuote}"
+                    &ldquo;{currentQuote}&rdquo;
                   </blockquote>
                 ) : (
                   <div className="text-gray-300 text-xl text-center" style={{ fontFamily: "'Poppins', sans-serif" }}>
@@ -213,27 +214,35 @@ export default function Home() {
               </div>
 
               <div className="absolute -bottom-8 left-12 w-32 h-32 hidden lg:block z-10 character-swap">
-                <img 
+                <Image 
                   src="/furina1.jpg" 
                   alt="Character Bottom Left" 
+                  width={128}
+                  height={128}
                   className="w-full h-full object-contain default-image"
                 />
-                <img 
+                <Image 
                   src="/furina2.png" 
                   alt="Character Bottom Left Hover" 
+                  width={128}
+                  height={128}
                   className="w-full h-full object-contain hover-image"
                 />
               </div>
 
               <div className="absolute -bottom-8 right-12 w-32 h-32 hidden lg:block z-10 character-swap">
-                <img 
+                <Image 
                   src="/furina2.png" 
                   alt="Character Bottom Right" 
+                  width={128}
+                  height={128}
                   className="w-full h-full object-contain default-image"
                 />
-                <img 
+                <Image 
                   src="/furina1.jpg" 
                   alt="Character Bottom Right Hover" 
+                  width={128}
+                  height={128}
                   className="w-full h-full object-contain hover-image"
                 />
               </div>

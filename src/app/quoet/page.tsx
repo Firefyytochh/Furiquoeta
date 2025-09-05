@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { submitQuote } from "@/action/quoet"
 import { useState, useRef } from "react"
+import Image from "next/image"
 
 export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -49,10 +50,6 @@ export default function Home() {
         fontFamily: "'Poppins', sans-serif",
       }}
     >
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
-      />
       
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -119,20 +116,22 @@ export default function Home() {
         }}
       />
 
-
-   
       <header className="relative z-10 px-6 py-4 mx-8" style={{ backgroundColor: "#151F59", borderRadius: "12px", marginTop: "16px" }}>
         <div className="flex items-center justify-between max-w-5xl mx-auto">
           <div className="flex items-center gap-3">
             <div className="w-16 h-16 relative character-swap">
-              <img
+              <Image
                 src="/furina1.jpg"
                 alt="Furi Character"
+                width={64}
+                height={64}
                 className="w-full h-full object-contain default-image"
               />
-              <img
+              <Image
                 src="/furina2.png"
                 alt="Furi Character Hover"
+                width={64}
+                height={64}
                 className="w-full h-full object-contain hover-image"
               />
             </div>
@@ -221,23 +220,24 @@ export default function Home() {
               </form>
             </div>
 
-          
             <div className="relative flex justify-between items-center mt-8">
-            
               <div className="w-32 h-32 hidden lg:block character-swap">
-                <img 
+                <Image 
                   src="/furina1.jpg" 
                   alt="Character Bottom Left" 
+                  width={128}
+                  height={128}
                   className="w-full h-full object-contain default-image"
                 />
-                <img 
+                <Image 
                   src="/furina2.png" 
                   alt="Character Bottom Left Hover" 
+                  width={128}
+                  height={128}
                   className="w-full h-full object-contain hover-image"
                 />
               </div>
 
-            
               <div className="flex-1 text-center">
                 <div 
                   className="text-white text-xl font-medium typing-text"
@@ -251,16 +251,19 @@ export default function Home() {
                 </div>
               </div>
 
-         
               <div className="w-32 h-32 hidden lg:block character-swap">
-                <img 
+                <Image 
                   src="/furina2.png" 
                   alt="Character Bottom Right" 
+                  width={128}
+                  height={128}
                   className="w-full h-full object-contain default-image"
                 />
-                <img 
+                <Image 
                   src="/furina1.jpg" 
                   alt="Character Bottom Right Hover" 
+                  width={128}
+                  height={128}
                   className="w-full h-full object-contain hover-image"
                 />
               </div>

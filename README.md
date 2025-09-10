@@ -2,6 +2,9 @@
 Furiquoeta
 
 ## Brief Description:
+
+This is quoet generation website where user can get random quoet and also user can input their quote there,
+
 The technologies I used is I create this frontend file using Next.js and connect to backend with Supabase 
 
 

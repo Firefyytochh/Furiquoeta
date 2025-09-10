@@ -10,7 +10,7 @@ The technologies I used is I create this frontend file using Next.js and connect
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-##How to run my project
+## How to run my project
 
 First, run the development server:
 
